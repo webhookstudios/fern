@@ -1,0 +1,7 @@
+#!/usr/bin/gjs -m
+// Starts Shine. SHINE_DIR points at the folder holding main.js (a source checkout, for example).
+import GLib from 'gi://GLib';
+
+const dir = GLib.getenv('SHINE_DIR') ?? '/usr/share/shine';
+const {main} = await import(`file://${dir}/main.js`);
+main();
