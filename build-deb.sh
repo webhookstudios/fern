@@ -27,7 +27,7 @@ chmod 644 "$STAGE/usr/share/applications/$APP_ID.desktop"
 
 cat > "$STAGE/usr/share/doc/fern/copyright" <<EOT
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Fern (formerly Shine)
+Upstream-Name: Fern
 Source: https://github.com/webhookstudios/fern
 
 Files: *
@@ -58,7 +58,7 @@ Section: gnome
 Priority: optional
 Homepage: https://github.com/webhookstudios/fern
 Description: Icon packs and custom folder icons for GNOME
- Fern (formerly Shine) lets you apply an icon pack with one click, mix icons from different
+ Fern lets you apply an icon pack with one click, mix icons from different
  packs, and give Home, Trash and any single folder its own icon.
 EOT
 

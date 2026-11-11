@@ -1,6 +1,6 @@
 # Fern
 
-*Formerly Shine. Part of the Sedge family of webhookstudios apps.*
+*Part of the Sedge family of webhookstudios apps.*
 
 Apply an icon pack to Ubuntu with one click, and give Home, Trash and any single folder its own icon.
 
@@ -26,10 +26,10 @@ Ubuntu 24.04 or newer with GNOME. Fern has been tested on Ubuntu 26.04 with GNOM
 
 ### With the deb package (recommended)
 
-Download `fern_1.1.0_all.deb` from the [latest release](https://github.com/webhookstudios/fern/releases/latest), then install it:
+Download `fern_1.1.1_all.deb` from the [latest release](https://github.com/webhookstudios/fern/releases/latest), then install it:
 
 ```bash
-sudo apt install ./fern_1.1.0_all.deb
+sudo apt install ./fern_1.1.1_all.deb
 ```
 
 Open **Fern** from the apps menu. To remove it:
