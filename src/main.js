@@ -5,8 +5,10 @@ import Gtk from 'gi://Gtk?version=4.0';
 
 import {listThemes, paintable, installArchive, removePack, CUSTOM_ID} from './iconthemes.js';
 import * as O from './overrides.js';
+import {applyToApp as applySedge} from './sedge/sedge.js';
 
 const APP_ID = 'io.github.webhookstudios.Shine';
+const SEDGE_DIR = GLib.build_filenamev([GLib.path_get_dirname(GLib.filename_from_uri(import.meta.url)[0]), 'sedge']);
 const PREVIEW = ['user-home', 'user-trash', 'folder', 'folder-documents', 'folder-pictures', 'folder-music'];
 
 Gio._promisify(Gtk.FileDialog.prototype, 'open', 'open_finish');
@@ -38,12 +40,15 @@ function imageFilter() {
 class ShineWindow {
     constructor(app) {
         this.themes = [];
-        this.win = new Adw.ApplicationWindow({application: app, title: 'Shine', default_width: 780, default_height: 760});
+        this.win = new Adw.ApplicationWindow({application: app, title: 'Fern', default_width: 780, default_height: 760});
         this.toasts = new Adw.ToastOverlay();
 
         this.stack = new Adw.ViewStack();
         const switcher = new Adw.ViewSwitcher({stack: this.stack, policy: Adw.ViewSwitcherPolicy.WIDE});
         const header = new Adw.HeaderBar({title_widget: switcher});
+        const menu = new Gio.Menu();
+        menu.append('About Fern', 'app.about');
+        header.pack_end(new Gtk.MenuButton({icon_name: 'open-menu-symbolic', menu_model: menu, tooltip_text: 'Main menu'}));
 
         this.packsPage = new Adw.PreferencesPage();
         this.specialPage = new Adw.PreferencesPage();
@@ -273,6 +278,14 @@ class ShineWindow {
 
 export function main() {
     const app = new Adw.Application({application_id: APP_ID});
+    app.connect('startup', () => applySedge(SEDGE_DIR));
+    const about = new Gio.SimpleAction({name: 'about'});
+    about.connect('activate', () => new Adw.AboutDialog({
+        application_name: 'Fern', application_icon: APP_ID, developer_name: 'webhookstudios',
+        website: 'https://github.com/webhookstudios/shine', license_type: Gtk.License.GPL_2_0,
+        comments: 'Icon packs, and your own icons for Home, Trash and any folder.\n\nPart of the Sedge family of apps.',
+    }).present(app.get_active_window()));
+    app.add_action(about);
     app.connect('activate', () => {
         const existing = app.get_active_window();
         if (existing) existing.present();

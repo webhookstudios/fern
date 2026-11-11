@@ -17,6 +17,8 @@ install -d "$STAGE/DEBIAN" "$STAGE/usr/bin" "$STAGE/usr/share/shine" \
     "$STAGE/usr/share/icons/hicolor/scalable/apps" \
     "$STAGE/usr/share/doc/shine"
 install -m 644 "$ROOT"/src/*.js "$STAGE/usr/share/shine/"
+cp -r "$ROOT/src/sedge" "$STAGE/usr/share/shine/"
+find "$STAGE/usr/share/shine/sedge" -type f -exec chmod 644 {} +
 install -m 755 "$ROOT/bin/shine" "$STAGE/usr/bin/shine"
 install -m 644 "$ROOT/data/$APP_ID.svg" "$STAGE/usr/share/icons/hicolor/scalable/apps/"
 sed -e 's|@EXEC@|shine|' -e "s|@ICON@|$APP_ID|" "$ROOT/data/$APP_ID.desktop.in" \
@@ -25,7 +27,7 @@ chmod 644 "$STAGE/usr/share/applications/$APP_ID.desktop"
 
 cat > "$STAGE/usr/share/doc/shine/copyright" <<EOT
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Shine
+Upstream-Name: Fern (formerly Shine)
 Source: https://github.com/webhookstudios/shine
 
 Files: *
@@ -33,6 +35,11 @@ Copyright: $(date +%Y) webhookstudios
 License: GPL-2+
  On Debian systems, the full text of the GNU General Public License
  version 2 can be found in /usr/share/common-licenses/GPL-2.
+
+Files: */sedge/fonts/*
+Copyright: 2023 The Young Serif Project Authors; 2015 The Public Sans Project Authors
+License: OFL-1.1
+ The full license texts are in the sedge/fonts/ folder.
 EOT
 chmod 644 "$STAGE/usr/share/doc/shine/copyright"
 
@@ -48,7 +55,7 @@ Section: gnome
 Priority: optional
 Homepage: https://github.com/webhookstudios/shine
 Description: Icon packs and custom folder icons for GNOME
- Shine lets you apply an icon pack with one click, mix icons from different
+ Fern (formerly Shine) lets you apply an icon pack with one click, mix icons from different
  packs, and give Home, Trash and any single folder its own icon.
 EOT
 

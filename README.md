@@ -1,4 +1,6 @@
-# Shine
+# Fern
+
+*Formerly Shine. Part of the Sedge family of webhookstudios apps.*
 
 Apply an icon pack to Ubuntu with one click, and give Home, Trash and any single folder its own icon.
 
@@ -18,19 +20,19 @@ Apply an icon pack to Ubuntu with one click, and give Home, Trash and any single
 
 ## Requirements
 
-Ubuntu 24.04 or newer with GNOME. Shine has been tested on Ubuntu 26.04 with GNOME Shell 50.1 on Wayland.
+Ubuntu 24.04 or newer with GNOME. Fern has been tested on Ubuntu 26.04 with GNOME Shell 50.1 on Wayland.
 
 ## Install
 
 ### With the deb package (recommended)
 
-Download `shine_1.0.0_all.deb` from the [latest release](https://github.com/webhookstudios/shine/releases/latest), then install it:
+Download `shine_1.1.0_all.deb` from the [latest release](https://github.com/webhookstudios/shine/releases/latest), then install it:
 
 ```bash
-sudo apt install ./shine_1.0.0_all.deb
+sudo apt install ./shine_1.1.0_all.deb
 ```
 
-Open **Shine** from the apps menu. To remove it:
+Open **Fern** from the apps menu. To remove it:
 
 ```bash
 sudo apt remove shine
@@ -48,7 +50,7 @@ git clone https://github.com/webhookstudios/shine.git
 
 ## How it works
 
-Shine does not edit your icon packs. Your own choices are written into a small theme called `Shine-Custom` in `~/.local/share/icons/`. It inherits from the pack you picked, so only the icons you changed are different. Shine then sets it as your icon theme. Single folders use the `metadata::custom-icon` setting that Files reads, which stays with the folder.
+Fern does not edit your icon packs. Your own choices are written into a small theme called `Shine-Custom` in `~/.local/share/icons/`. It inherits from the pack you picked, so only the icons you changed are different. Fern then sets it as your icon theme. Single folders use the `metadata::custom-icon` setting that Files reads, which stays with the folder.
 
 Your choices are stored in `~/.config/shine/config.json`, and the pictures you chose are kept in `~/.local/share/shine/`.
 

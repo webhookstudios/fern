@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Application
-Name=Shine
+Name=Fern
 GenericName=Icon Packs and Folder Icons
 Comment=Apply icon packs and give Home, Trash and folders their own icons
 Exec=@EXEC@
 Icon=@ICON@
 Terminal=false
 Categories=Settings;GNOME;GTK;
-Keywords=icons;theme;pack;folder;trash;home;customize;
+Keywords=shine;sedge;icons;theme;pack;folder;trash;home;customize;
 StartupWMClass=io.github.webhookstudios.Shine
