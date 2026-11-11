@@ -26,40 +26,40 @@ Ubuntu 24.04 or newer with GNOME. Fern has been tested on Ubuntu 26.04 with GNOM
 
 ### With the deb package (recommended)
 
-Download `shine_1.1.0_all.deb` from the [latest release](https://github.com/webhookstudios/shine/releases/latest), then install it:
+Download `fern_1.1.0_all.deb` from the [latest release](https://github.com/webhookstudios/fern/releases/latest), then install it:
 
 ```bash
-sudo apt install ./shine_1.1.0_all.deb
+sudo apt install ./fern_1.1.0_all.deb
 ```
 
 Open **Fern** from the apps menu. To remove it:
 
 ```bash
-sudo apt remove shine
+sudo apt remove fern
 ```
 
 ### From source
 
 ```bash
-git clone https://github.com/webhookstudios/shine.git
+git clone https://github.com/webhookstudios/fern.git
 ```
 
 ```bash
-./shine/install.sh
+./fern/install.sh
 ```
 
 ## How it works
 
 Fern does not edit your icon packs. Your own choices are written into a small theme called `Shine-Custom` in `~/.local/share/icons/`. It inherits from the pack you picked, so only the icons you changed are different. Fern then sets it as your icon theme. Single folders use the `metadata::custom-icon` setting that Files reads, which stays with the folder.
 
-Your choices are stored in `~/.config/shine/config.json`, and the pictures you chose are kept in `~/.local/share/shine/`.
+Your choices are stored in `~/.config/fern/config.json`, and the pictures you chose are kept in `~/.local/share/fern/`.
 
 Icons that apps draw themselves, or that are fixed inside an app, are not changed.
 
 ## Development
 
 ```bash
-SHINE_DIR="$PWD/src" gjs -m bin/shine
+FERN_DIR="$PWD/src" gjs -m bin/fern
 ```
 
 Build the deb into `dist/` with `./build-deb.sh` (needs only `dpkg-deb`).

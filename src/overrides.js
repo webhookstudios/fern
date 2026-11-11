@@ -5,9 +5,22 @@ import GLib from 'gi://GLib';
 import {CUSTOM_ID, USER_ICONS, iconFile, forgetThemes, run} from './iconthemes.js';
 
 const join = GLib.build_filenamev;
-const CONFIG_DIR = join([GLib.get_user_config_dir(), 'shine']);
+const CONFIG_DIR = join([GLib.get_user_config_dir(), 'fern']);
 const CONFIG = join([CONFIG_DIR, 'config.json']);
-const DATA = join([GLib.get_user_data_dir(), 'shine']);
+const DATA = join([GLib.get_user_data_dir(), 'fern']);
+
+// Fern was called Shine. Its saved files are copied over the first time; the old folder stays as a backup.
+function bringOver(oldDir, newDir) {
+    if (GLib.file_test(newDir, GLib.FileTest.EXISTS) || !GLib.file_test(oldDir, GLib.FileTest.IS_DIR))
+        return;
+    try {
+        Gio.Subprocess.new(['cp', '-a', oldDir, newDir], Gio.SubprocessFlags.NONE).wait(null);
+    } catch (e) {
+        // Starting fresh is fine.
+    }
+}
+bringOver(join([GLib.get_user_config_dir(), 'shine']), CONFIG_DIR);
+bringOver(join([GLib.get_user_data_dir(), 'shine']), DATA);
 
 // What can be changed. `ctx` is the icon-theme folder the icon lives in.
 export const SPECIAL = [

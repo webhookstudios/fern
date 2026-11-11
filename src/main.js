@@ -7,7 +7,7 @@ import {listThemes, paintable, installArchive, removePack, CUSTOM_ID} from './ic
 import * as O from './overrides.js';
 import {applyToApp as applySedge} from './sedge/sedge.js';
 
-const APP_ID = 'io.github.webhookstudios.Shine';
+const APP_ID = 'io.github.webhookstudios.Fern';
 const SEDGE_DIR = GLib.build_filenamev([GLib.path_get_dirname(GLib.filename_from_uri(import.meta.url)[0]), 'sedge']);
 const PREVIEW = ['user-home', 'user-trash', 'folder', 'folder-documents', 'folder-pictures', 'folder-music'];
 
@@ -37,7 +37,7 @@ function imageFilter() {
     return list;
 }
 
-class ShineWindow {
+class FernWindow {
     constructor(app) {
         this.themes = [];
         this.win = new Adw.ApplicationWindow({application: app, title: 'Fern', default_width: 780, default_height: 760});
@@ -64,7 +64,7 @@ class ShineWindow {
 
         this.refresh();
         // Lets a test or a shortcut open straight on one page: packs, special or folders.
-        const page = GLib.getenv('SHINE_PAGE');
+        const page = GLib.getenv('FERN_PAGE');
         if (page) this.stack.set_visible_child_name(page);
     }
 
@@ -282,14 +282,14 @@ export function main() {
     const about = new Gio.SimpleAction({name: 'about'});
     about.connect('activate', () => new Adw.AboutDialog({
         application_name: 'Fern', application_icon: APP_ID, developer_name: 'webhookstudios',
-        website: 'https://github.com/webhookstudios/shine', license_type: Gtk.License.GPL_2_0,
+        website: 'https://github.com/webhookstudios/fern', license_type: Gtk.License.GPL_2_0,
         comments: 'Icon packs, and your own icons for Home, Trash and any folder.\n\nPart of the Sedge family of apps.',
     }).present(app.get_active_window()));
     app.add_action(about);
     app.connect('activate', () => {
         const existing = app.get_active_window();
         if (existing) existing.present();
-        else new ShineWindow(app).win.present();
+        else new FernWindow(app).win.present();
     });
     app.run([]);
 }

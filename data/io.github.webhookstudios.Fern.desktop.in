@@ -8,4 +8,4 @@ Icon=@ICON@
 Terminal=false
 Categories=Settings;GNOME;GTK;
 Keywords=shine;sedge;icons;theme;pack;folder;trash;home;customize;
-StartupWMClass=io.github.webhookstudios.Shine
+StartupWMClass=io.github.webhookstudios.Fern

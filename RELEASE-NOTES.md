@@ -4,10 +4,12 @@ Fern is the new name for Shine. It now has the Sedge look shared by every webhoo
 
 - New icon, colors and fonts. Window titles and headings use the Sedge serif.
 - A main menu with an About window.
+- The package and command are now called `fern` (it was `shine`). Installing it replaces the old package.
+- Your settings and custom icons from Shine are copied over the first time Fern starts.
 - Everything works exactly as before. Your settings and presets carry over.
 
 Install:
 
 ```bash
-sudo apt install ./shine_1.1.0_all.deb
+sudo apt install ./fern_1.1.0_all.deb
 ```

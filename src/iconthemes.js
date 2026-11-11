@@ -96,7 +96,7 @@ export function run(argv) {
 
 // Unpacks a zip or tar archive and copies every icon pack inside it into the user's icon folder.
 export async function installArchive(path) {
-    const tmp = GLib.Dir.make_tmp('shine-XXXXXX');
+    const tmp = GLib.Dir.make_tmp('fern-XXXXXX');
     try {
         if (/\.zip$/i.test(path)) await run(['unzip', '-q', '-o', path, '-d', tmp]);
         else await run(['tar', '-xf', path, '-C', tmp]);
