@@ -26,10 +26,10 @@ Ubuntu 24.04 or newer with GNOME. Fern has been tested on Ubuntu 26.04 with GNOM
 
 ### With the deb package (recommended)
 
-Download `fern_1.1.1_all.deb` from the [latest release](https://github.com/webhookstudios/fern/releases/latest), then install it:
+Download `fern_1.1.2_all.deb` from the [latest release](https://github.com/webhookstudios/fern/releases/latest), then install it:
 
 ```bash
-sudo apt install ./fern_1.1.1_all.deb
+sudo apt install ./fern_1.1.2_all.deb
 ```
 
 Open **Fern** from the apps menu. To remove it:
